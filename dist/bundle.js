@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_fibs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/fibs */ \"./src/modules/fibs.js\");\n\n\n\nlet number = 8;\nconsole.log((0,_modules_fibs__WEBPACK_IMPORTED_MODULE_1__.fibs)(number));\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_fibs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/fibs */ \"./src/modules/fibs.js\");\n/* harmony import */ var _modules_fibsRec__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/fibsRec */ \"./src/modules/fibsRec.js\");\n\n\n\n\nconst args = process.argv;\nif (args.length < 4) {\n  console.log(\n    \"Please provide a function (fibs or fibsRec) and a number as arguments\"\n  );\n  process.exit(1);\n}\n\nconst funcName = args[2];\nconst number = parseInt(args[3], 10);\nif (isNaN(number)) {\n  console.log(\"Invalid number provided\");\n  process.exit(1);\n}\n\nlet result;\nif (funcName === \"fibs\") {\n  result = (0,_modules_fibs__WEBPACK_IMPORTED_MODULE_1__.fibs)(number);\n} else if (funcName === \"fibsRec\") {\n  result = (0,_modules_fibsRec__WEBPACK_IMPORTED_MODULE_2__.fibsRec)(number);\n} else {\n  console.log(\"Invalid function name provided. Use 'fibs' or 'fibsRec'.\");\n  process.exit(1);\n}\n\nconsole.log(`Fibonacci sequence up to ${number} using ${funcName}:`, result);\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
 
 /***/ }),
 
@@ -127,6 +127,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fibs: () => (/* binding */ fibs)\n/* harmony export */ });\nfunction fibs(number) {\n  if (number <= 0) {\n    return [];\n  }\n  if (number === 1) {\n    return [0];\n  }\n\n  if (number === 2) {\n    return [0, 1];\n  }\n\n  let resultArray = [0, 1];\n  for (let index = 2; index < number; index++) {\n    resultArray[index] = resultArray[index - 1] + resultArray[index - 2];\n  }\n  return resultArray;\n}\n\n\n\n//# sourceURL=webpack://webpack-demo/./src/modules/fibs.js?");
+
+/***/ }),
+
+/***/ "./src/modules/fibsRec.js":
+/*!********************************!*\
+  !*** ./src/modules/fibsRec.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fibsRec: () => (/* binding */ fibsRec)\n/* harmony export */ });\nfunction fibsRec(number) {\n  if (number <= 0) {\n    return [];\n  }\n  if (number === 1) {\n    return [0];\n  }\n\n  if (number === 2) {\n    return [0, 1];\n  }\n  let result = fibsRec(number - 1);\n  result.push(result[result.length - 1] + result[result.length - 2]);\n  return result;\n}\n\n\n\n//# sourceURL=webpack://webpack-demo/./src/modules/fibsRec.js?");
 
 /***/ })
 
