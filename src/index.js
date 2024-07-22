@@ -1,3 +1,5 @@
 import "./style.css";
+import { fibs } from "./modules/fibs";
 
-console.log("working!");
+let number = 8;
+console.log(fibs(number));

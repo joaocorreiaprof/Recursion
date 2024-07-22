@@ -116,7 +116,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconsole.log(\"working!\");\nconsole.log(\"Hello, Webpack with Babel!\");\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_fibs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/fibs */ \"./src/modules/fibs.js\");\n\n\n\nlet number = 8;\nconsole.log((0,_modules_fibs__WEBPACK_IMPORTED_MODULE_1__.fibs)(number));\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/fibs.js":
+/*!*****************************!*\
+  !*** ./src/modules/fibs.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fibs: () => (/* binding */ fibs)\n/* harmony export */ });\nfunction fibs(number) {\n  if (number <= 0) {\n    return [];\n  }\n  if (number === 1) {\n    return [0];\n  }\n\n  if (number === 2) {\n    return [0, 1];\n  }\n\n  let resultArray = [0, 1];\n  for (let index = 2; index < number; index++) {\n    resultArray[index] = resultArray[index - 1] + resultArray[index - 2];\n  }\n  return resultArray;\n}\n\n\n\n//# sourceURL=webpack://webpack-demo/./src/modules/fibs.js?");
 
 /***/ })
 
