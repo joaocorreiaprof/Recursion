@@ -1,5 +1,4 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development", // or 'production'
@@ -9,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true, // Clean the output directory before emit
   },
+  target: "node", // Ensure that the build targets Node.js
   module: {
     rules: [
       {
@@ -32,14 +32,5 @@ module.exports = {
         use: ["xml-loader"],
       },
     ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html", // Path to your source index.html
-    }),
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    hot: true,
   },
 };
